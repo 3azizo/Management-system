@@ -1,0 +1,163 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --mainColor: #da0037;
+  --bgColor: #171717;
+  --bgColor-2: #444444;
+  --textColor: #ededed;
+}
+body {
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  font-family: system-ui;
+}
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.head {
+  text-align: center;
+  text-transform: uppercase;
+  margin: 10px 0;
+}
+input {
+  width: 100%;
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: var(--bgColor-2);
+  color: var(--textColor);
+  margin: 4px 0;
+  border-radius: 4px;
+  font-size: 15px;
+  padding: 5px;
+  transition: all 0.5s;
+}
+input:focus {
+  background-color: #000;
+  transform: scale(1.02) translateY(2px);
+}
+.price {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 0;
+}
+.price input {
+  width: 20%;
+  margin: 0 5px;
+}
+.price #total {
+  display: inline-block;
+  width: 20%;
+  margin: 0 5px;
+  border-radius: 4px;
+  font-size: 15px;
+  text-align: center;
+  padding: 10px 5px;
+  background-color: var(--mainColor);
+  /* background-color: #006400; add this color in js */
+}
+#total::before {
+  content: "Total: ";
+}
+button {
+  width: 100%;
+  height: 40px;
+  margin: 4px 0;
+  transition: all 0.5s;
+  background-color: var(--mainColor);
+  cursor: pointer;
+  border-radius: 20px;
+  color: var(--textColor);
+  font-weight: bold;
+  position: relative;
+  border: none;
+}
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: var(--mainColor);
+  z-index: -1;
+  transition: 0.5s;
+}
+button:hover {
+  letter-spacing: 1px;
+}
+button:hover::before {
+  transform: scale(1.1);
+  opacity: 0;
+}
+.btnSearch {
+  display: flex;
+  justify-content: space-between;
+}
+.btnSearch button {
+  width: 45%;
+}
+/*  */
+table {
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+th {
+  text-transform: uppercase;
+}
+td,
+th {
+  padding: 5px;
+  border-bottom: 5px solid var(--bgColor-2);
+}
+/* showINSmall phone */
+.showInSmall {
+  display: none;
+}
+/* showINSmall phone */
+@media (max-width: 787px) and (min-width: 550px) {
+  table {
+    font-size: 12px;
+  }
+  table button {
+    padding: 0;
+    border-radius: 10px;
+  }
+  td,
+  th {
+    padding: 1px;
+    border-bottom: 2px solid var(--bgColor-2);
+  }
+}
+@media (max-width: 550px) or (max-height: 360px) {
+  .container {
+    display: none;
+  }
+  .showInSmall {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  .showInSmall h2 {
+    color: var(--mainColor);
+    font-size: 1em;
+  }
+}
+@media (max-height: 600px) {
+  input,
+  button,
+  #total {
+    height: 30px;
+  }
+  .price #total {
+    padding: 5px;
+  }
+}
