@@ -43,7 +43,7 @@ function saveDataAndCreate() {
     price.value != "" &&
     title.value != "" &&
     category.value != "" &&
-    count < 100
+    count.value < 100
   ) {
     let newProduct = {
       title: title.value,
